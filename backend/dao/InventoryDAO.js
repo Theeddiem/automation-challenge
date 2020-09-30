@@ -1,0 +1,41 @@
+const { log } = require('console');
+const { v4: uuidv4 } = require('uuid');
+const Item  = require("../models/item");
+
+module.exports = class InventoryDAO {
+
+    constructor()
+    {
+           this.inventory = new Map(); 
+           const firstItem = new Item("Guitar","music instrument")
+           this.set(firstItem)
+           const secondItem = new Item("Milk", "a Dairy product")
+           this.set(secondItem)
+           const thirdItem = new Item("Bottle", "plastice bottle",2000)
+           thirdItem.id = "1";
+           this.inventory.set("1",thirdItem)        
+   }
+
+    set(item)
+    {
+       item.id = uuidv4()
+       this.inventory.set(item.id,item)
+       return this.inventory.get(item.id)
+    }
+
+    get(key)
+    {
+       return this.inventory.get(key);
+    }
+
+    getAll()
+    {
+       return [ ...this.inventory.values() ]
+    }
+
+    delete(key)
+    {
+       return this.inventory.delete(key)
+    }
+
+}
