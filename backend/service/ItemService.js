@@ -13,17 +13,13 @@ module.exports = class ItemService {
 
     async getItemById (id)
     {
-        const item = Inventory.get(id)
-        if(!item)
-            throw new Error("The item with the given ID was not found")
-
-         return item;
+        return Inventory.get(id)
     }
 
     async updateItem(item)
     {
         const {id, name, description, count} = item;
-        const updatedItem = await this.getItemById(id)
+        const updatedItem = Inventory.get(id)
 
         await validateItem(item)   
         updatedItem.name = name;
@@ -43,9 +39,7 @@ module.exports = class ItemService {
 
     async removeItemById(id)
     {
-        if(!Inventory.delete(id))
-            throw new Error("The item with the given ID was not found")
-            
+        Inventory.delete(id)
         return "The item with the given ID was successfully deleted";  
     }
 
@@ -53,7 +47,7 @@ module.exports = class ItemService {
     {
         
         const {id, amount} = payload
-        const item = await this.getItemById(id)
+        const item = Inventory.get(id)
         item.withdraw(amount)
          return item;       
     }
@@ -61,7 +55,7 @@ module.exports = class ItemService {
     async depositItem(payload)
     {
         const {id, amount} = payload
-        const item = await this.getItemById(id)
+        const item = Inventory.get(id)
         item.deposit(amount)
         return item;    
     }

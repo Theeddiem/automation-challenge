@@ -25,6 +25,8 @@ module.exports = class InventoryDAO {
 
     get(key)
     {
+       if(!this.inventory.get(key))
+          throw new Error("The item with the given ID was not found")
        return this.inventory.get(key);
     }
 
@@ -35,7 +37,8 @@ module.exports = class InventoryDAO {
 
     delete(key)
     {
-       return this.inventory.delete(key)
+       if(this.get(key))
+          return this.inventory.delete(key)
     }
 
 }
