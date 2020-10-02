@@ -43,7 +43,7 @@ export class ItemRowComponent implements OnInit {
     {
       this.showUpdate = true
     }
-    else
+    else if(this.updatedItem.description!="" && this.updatedItem.name!="")
     {
      this.updatedItem.id = this.currentItem.id;
      this.updateEvent.emit(this.updatedItem);
@@ -57,10 +57,12 @@ export class ItemRowComponent implements OnInit {
   }
 
   invokeWithdraw(){
+    if(this.amount > 0)
     this.withdrawEvent.emit(this.getPatchObject());
   }
 
   invokeDeposit(){
+    if(this.amount > 0)
     this.depositEvent.emit(this.getPatchObject());   
   }
 

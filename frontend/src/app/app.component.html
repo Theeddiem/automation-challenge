@@ -15,9 +15,11 @@
     <button type="submit" class="btn btn-success" (click)="addItem()"> Add</button>
   </form>
 
-  <ul class="list-group">
 
-    <li *ngFor = "let item of inventoryList" class="list-group-item">{{item.name}}      Description: {{item.description}} Amount: {{ item.count}}  
+  
+  <ul class="list-group" >
+
+    <li *ngFor = "let item of inventoryList" class="list-group-item"  > <h2>{{item.name}}</h2> <h4>{{item.description}}</h4> <h5>Amount: {{ item.count}}</h5>
       <item-row [showUpdate] = "showUpdate" [currentItem]=(item) (updateEvent)="updateItem($event)"  (deleteEvent)="deleteItem($event)" (withdrawEvent)="withdrawAmount($event)" (depositEvent) ="depositAmount($event)"></item-row>
    </li>
   </ul>
