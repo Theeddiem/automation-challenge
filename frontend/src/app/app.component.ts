@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { log } from 'util';
 import {Item} from "./item";
 import  {map}  from 'rxjs/operators'
 
@@ -14,13 +13,11 @@ export class AppComponent {
   title = 'DashBoard';
   inventoryList : Item[];
   itemValue : Item;
-  amount : number;
 
   constructor(private http:HttpClient) {}
 
   ngOnInit()
   {
-    this.amount = 0;
     this.clearItemValue();
     this.getItems();
   }
@@ -55,28 +52,24 @@ export class AppComponent {
     
   }
 
-  updateItem()
-  {
+  updateItem(item:Item)
+  {  
 
+    console.log(item);
+    this.http.put('http://localhost:3000/api/items',item).subscribe(resposneData => {
+      console.log(resposneData);
+    });
   }
 
- deleteItem(id:string){
-      this.http.delete(`http://localhost:3000/api/items/${id}`).subscribe()
+ deleteItem(item:Item){
+      this.http.delete(`http://localhost:3000/api/items/${item.id}`).subscribe()
   }
 
-  depositAmount(item:Item){
-    const request = this.getPatchObject(item)
-    this.http.patch('http://localhost:3000/api/items/deposit',request).subscribe()
+  depositAmount(request){
+   this.http.patch('http://localhost:3000/api/items/deposit',request).subscribe()
   }
 
-  withdrawAmount(item:Item){
-    const request = this.getPatchObject(item)
-    this.http.patch('http://localhost:3000/api/items/withdraw',request).subscribe()
+  withdrawAmount(request){
+    this.http.patch('http://localhost:3000/api/items/withdraw',request).subscribe()   
   }
-
-  private getPatchObject(item: Item)
-  {
-    return {id:item.id,amount:this.amount};
-  }
-  
 }

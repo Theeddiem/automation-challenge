@@ -16,7 +16,41 @@
   </form>
 
 
+  
   <ul class="list-group">
+
+    <li *ngFor = "let item of inventoryList" class="list-group-item">{{item.name}}      Description: {{item.description}} Amount: {{ item.count}}  
+      <item-row [showUpdate] = "showUpdate" [currentItem]=(item) (updateEvent)="updateItem($event)"  (deleteEvent)="deleteItem($event)" (withdrawEvent)="withdrawAmount($event)" (depositEvent) ="depositAmount($event)"></item-row>
+   </li>
+
+
+  </ul>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+  <ul class="list-group">
+
     <li *ngFor = "let item of inventoryList" class="list-group-item">{{item.name}}      Description: {{item.description}} Amount: {{ item.count}}  
       <div class="btn-group" role="group" aria-label="Basic example">
       <div class="input-group">
@@ -26,12 +60,16 @@
           <button class="btn btn-outline-secondary" type="button" (click)="withdrawAmount(item)" >Withdraw</button>
         </div>
       </div>
-        <button type="button" class="btn btn-primary">Update</button>
+        <button type="button" class="btn btn-primary"  (click)="updateItem(item)">Update</button>
       <button type="button" class="btn btn-danger" (click)="deleteItem(item.id)">Delete</button>
       </div> 
+      <update-form  [showUpdate] = "showUpdate" [itemId] = "item.id"></update-form>
+
    </li>
+
+
   </ul>
- 
+  -->
 
 
 
