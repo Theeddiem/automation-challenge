@@ -2,3 +2,15 @@
     margin-top: 5px;
     margin-right:3px ;
 }
+
+.withdraw-color{
+    color: #fff;
+    background-color: #eb7629;
+    border-color: #e26f22;
+}
+
+.deposit-color{
+    color: #fff;
+    background-color: #33c4b0;
+    border-color: rgb(37, 187, 167);
+}
