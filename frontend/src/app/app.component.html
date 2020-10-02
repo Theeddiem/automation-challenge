@@ -3,15 +3,15 @@
   <form>
     <div class="form-group">
       <label> Product Name</label>
-      <input type="text" class="form-control" id="product-name" aria-describedby="emailHelp" placeholder="Enter Product Name" [(ngModel)]="itemValue.name" name="Itemname">
+      <input type="text" class="form-control" id="product-name" aria-describedby="emailHelp" placeholder="Enter Product Name" [(ngModel)]="itemValue.name" name="item-name">
     </div>
     <div class="form-group">
       <label> Product Description</label>
-      <input type="text" class="form-control" id="product-description" placeholder="Enter Product Description" [(ngModel)]="itemValue.description" [ngModelOptions]="{standalone: true}" >
+      <input type="text" class="form-control" id="product-description" placeholder="Enter Product Description" [(ngModel)]="itemValue.description" name="item-description" >
     </div>
     <div class="form-group">
       <label>Amount</label>
-      <input type="number" class="form-control" id="product-amount" placeholder="Enter Amount" [(ngModel)]="itemValue.count" [ngModelOptions]="{standalone: true}" >
+      <input type="number" class="form-control" id="product-amount" placeholder="Enter Amount" [(ngModel)]="itemValue.count" name="item-amount" >
     </div>
     <button type="submit" class="btn btn-success" (click)="addItem()" style="margin-bottom: 5px"> Add Item</button>
   </form>
@@ -22,7 +22,7 @@
   
   <ul class="list-group" >
     <li *ngFor = "let item of inventoryList" class="list-group-item"  > <h3>Name : {{item.name}}</h3> <h4>Description: {{item.description}}</h4> <h5>Amount: {{ item.count}}</h5>
-      <item-row [showUpdate] = "showUpdate" [currentItem]=(item) (updateEvent)="updateItem($event)"  (deleteEvent)="deleteItem($event)" (withdrawEvent)="withdrawAmount($event)" (depositEvent) ="depositAmount($event)"></item-row>
+      <item-row [showUpdate] = "showUpdate" [currentItem]=(item) (updateEvent)="updateItem($event)"  (deleteEvent)="deleteItem($event)" (withdrawEvent)="withdrawAmount($event)" (depositEvent) ="depositAmount($event)" ></item-row>
    </li>
   </ul>
  </div>

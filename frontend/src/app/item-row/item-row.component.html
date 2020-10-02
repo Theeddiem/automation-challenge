@@ -1,8 +1,8 @@
 <div class="btn-group" role="group" aria-label="Basic example"  style="display:grid">
     <div class="input-group">
-      <input type="number" class="form-control" placeholder="Amount to withdraw or deposit" aria-describedby="basic-addon2" [(ngModel)]="amount" [ngModelOptions]="{standalone: true}">
+      <input type="number" class="form-control" placeholder="Amount to withdraw or deposit" aria-describedby="basic-addon2" [(ngModel)]="amount" name="amount">
       <div class="input-group-append buttons-mirgin">
-        <button class="btn btn-outline-secondary deposit-color"   type="button" (click)="invokeDeposit()" >Deposit</button>
+        <button class="btn btn-outline-secondary deposit-color"  type="button" (click)="invokeDeposit()"  >Deposit</button>
         <button class="btn btn-outline-secondary withdraw-color" type="button" (click)="invokeWithdraw()" >Withdraw</button>
         <button type="button" class="btn btn-primary"  (click)="invokeUpdate()">Update</button>
         <button type="button" class="btn btn-danger"  (click)="invokeDelete()">Delete</button>
