@@ -43,13 +43,18 @@ export class ItemRowComponent implements OnInit {
     {
       this.showUpdate = true
     }
-    else if(this.updatedItem.description!="" && this.updatedItem.name!="")
+    else 
     {
-     this.updatedItem.id = this.currentItem.id;
-     this.updateEvent.emit(this.updatedItem);
-     this.showUpdate = false;
+      if(this.updatedItem.description!="" && this.updatedItem.name!="")
+    {
+       this.updatedItem.id = this.currentItem.id;
+       this.updateEvent.emit(this.updatedItem);
+     }
+     this.showUpdate = false
+
     }
-  }
+
+ }
 
   invokeDelete()
   {
