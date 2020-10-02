@@ -20,10 +20,11 @@
     <button type="submit" class="btn btn-success" (click)="addItem()" style="margin-bottom: 5px"> Add Item</button>
   </form>
 
-
+  <div  class="alert alert-danger" *ngIf="errorMessage">
+        <p>{{errorMessage}}</p>
+  </div>
   
   <ul class="list-group" >
-
     <li *ngFor = "let item of inventoryList" class="list-group-item"  > <h3>Name : {{item.name}}</h3> <h4>Description: {{item.description}}</h4> <h5>Amount: {{ item.count}}</h5>
       <item-row [showUpdate] = "showUpdate" [currentItem]=(item) (updateEvent)="updateItem($event)"  (deleteEvent)="deleteItem($event)" (withdrawEvent)="withdrawAmount($event)" (depositEvent) ="depositAmount($event)"></item-row>
    </li>

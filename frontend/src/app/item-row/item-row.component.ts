@@ -16,7 +16,7 @@ export class ItemRowComponent implements OnInit {
 
   @Input() currentItem : Item
 
-
+  errorMessage:null;
 
   @Output() updateEvent = new EventEmitter<Item>()
 
@@ -45,7 +45,7 @@ export class ItemRowComponent implements OnInit {
     }
     else 
     {
-      if(this.updatedItem.description!="" && this.updatedItem.name!="")
+     if(this.updatedItem.description!="" && this.updatedItem.name!="")
     {
        this.updatedItem.id = this.currentItem.id;
        this.updateEvent.emit(this.updatedItem);
@@ -64,11 +64,22 @@ export class ItemRowComponent implements OnInit {
   invokeWithdraw(){
     if(this.amount > 0)
     this.withdrawEvent.emit(this.getPatchObject());
+    else{
+      this.showError("amount must be greater than 0")
+    }
   }
 
+  private showError(error)
+  {
+    this.errorMessage= error
+    setTimeout(()=>{ this.errorMessage = null}, 2000);
+  }
   invokeDeposit(){
     if(this.amount > 0)
     this.depositEvent.emit(this.getPatchObject());   
+    else{
+      this.showError("amount must be greater than 0")
+    }
   }
 
   private getPatchObject()
