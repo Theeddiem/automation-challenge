@@ -1,0 +1,40 @@
+<div class="container"> 
+  <form>
+    <div class="form-group">
+      <label> Product Name</label>
+      <input type="text" class="form-control" id="product-name" aria-describedby="emailHelp" placeholder="Enter Product Name" [(ngModel)]="itemValue.name" name="Itemname">
+    </div>
+    <div class="form-group">
+      <label> Product Description</label>
+      <input type="text" class="form-control" id="product-description" placeholder="Enter Product Description" [(ngModel)]="itemValue.description" [ngModelOptions]="{standalone: true}" >
+    </div>
+    <div class="form-group">
+      <label>Amount</label>
+      <input type="number" class="form-control" id="product-amount" placeholder="Enter Amount" [(ngModel)]="itemValue.count" [ngModelOptions]="{standalone: true}" >
+    </div>
+    <button type="submit" class="btn btn-success" (click)="addItem()"> Add</button>
+  </form>
+
+
+  <ul class="list-group">
+    <li *ngFor = "let item of inventoryList" class="list-group-item">{{item.name}}      Description: {{item.description}} Amount: {{ item.count}}  
+      <div class="btn-group" role="group" aria-label="Basic example">
+      <div class="input-group">
+        <input type="number" class="form-control" placeholder="Amount" aria-describedby="basic-addon2" [(ngModel)]="amount" [ngModelOptions]="{standalone: true}">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button" (click)="depositAmount(item)" >Deposit</button>
+          <button class="btn btn-outline-secondary" type="button" (click)="withdrawAmount(item)" >Withdraw</button>
+        </div>
+      </div>
+        <button type="button" class="btn btn-primary">Update</button>
+      <button type="button" class="btn btn-danger" (click)="deleteItem(item.id)">Delete</button>
+      </div> 
+   </li>
+  </ul>
+ 
+
+
+
+
+</div>
+

@@ -47,6 +47,8 @@ module.exports = class ItemService {
     {
         
         const {id, amount} = payload
+        if(!Number.isFinite(amount))
+            throw new Error("amount should be a number")
         const item = Inventory.get(id)
         item.withdraw(amount)
          return item;       
@@ -54,7 +56,11 @@ module.exports = class ItemService {
 
     async depositItem(payload)
     {
+
         const {id, amount} = payload
+        if(!Number.isFinite(amount))
+        throw new Error("amount should be a number")
+        console.log(payload);
         const item = Inventory.get(id)
         item.deposit(amount)
         return item;    

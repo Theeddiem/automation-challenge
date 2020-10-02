@@ -13,8 +13,8 @@ router.get("/:id", async (req, res) => { // Get Item By ID - Find item by ID and
     
     const id = req.params.id;
     try {
-        const item = await ItemServiceInstance.getItemById(id)
-        res.status(200).send(item);
+        const result = await ItemServiceInstance.getItemById(id)
+        res.status(200).send(result);
     } catch (error) {
         res.status(400).send(error.message);
     }  
@@ -27,7 +27,6 @@ router.put("/", async (req, res) => { // Update Item - Find an item by ID and up
 
     try {
         const result =  await ItemServiceInstance.updateItem(itemBody);
-        console.log(result);
         res.status(200).send(result);
     } catch (error) {
         res.status(400).send(error.message);
