@@ -1,4 +1,9 @@
+
+
+
+
 <div class="container"> 
+  <h2 class="header">Inventory Management System</h2>
   <form>
     <div class="form-group">
       <label> Product Name</label>
@@ -12,7 +17,7 @@
       <label>Amount</label>
       <input type="number" class="form-control" id="product-amount" placeholder="Enter Amount" [(ngModel)]="itemValue.count" [ngModelOptions]="{standalone: true}" >
     </div>
-    <button type="submit" class="btn btn-success" (click)="addItem()"> Add</button>
+    <button type="submit" class="btn btn-success" (click)="addItem()" style="margin-bottom: 5px"> Add Item</button>
   </form>
 
 
