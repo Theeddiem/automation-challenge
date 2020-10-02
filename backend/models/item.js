@@ -1,6 +1,5 @@
-const { v4: uuidv4 } = require('uuid');
 
-module.exports = class Item {
+module.exports = class Item { 
 
     constructor(name, description, count)
     {
@@ -9,12 +8,12 @@ module.exports = class Item {
         this.count = count || 1;
     }
  
-    withdraw(amount) { //validate postive number and withdraw can't be under zero
+    withdraw(amount) {
         if(amount > 0 && this.count - amount >= 0)
                    this.count -= amount;
     }
 
-    deposit(amount) {  //validate postive number and withdraw can't be under zero
+    deposit(amount) { 
         if(amount > 0 )
             this.count += amount; 
     }

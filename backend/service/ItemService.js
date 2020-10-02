@@ -2,7 +2,6 @@ const Item  = require("../models/item");
 const  InventoryDAO = require("../dao/InventoryDAO");
 const Inventory = new InventoryDAO(); 
 const validateItem = require("../validation/ItemValidationSchema");
-const { log } = require("console");
 
 module.exports = class ItemService {
 
