@@ -50,9 +50,12 @@ router.delete("/:id", async (req, res) => {  // Remove Item - Find an item by ID
     const id = req.params.id;
 
     try {
-            const result = await ItemServiceInstance.removeItemById(id)
+        
+        const result = await ItemServiceInstance.removeItemById(id)
+        console.log("here");
             res.status(200).send(result);
         } catch (error) {
+            console.log("bye");
             res.status(400).send(error.message);
         }
 

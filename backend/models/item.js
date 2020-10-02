@@ -8,7 +8,7 @@ module.exports = class Item {
         this.description = description;
         this.count = count || 1;
     }
-
+ 
     withdraw(amount) { //validate postive number and withdraw can't be under zero
         if(amount > 0 && this.count - amount >= 0)
                    this.count -= amount;

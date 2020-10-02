@@ -40,7 +40,7 @@ module.exports = class ItemService {
     async removeItemById(id)
     {
         Inventory.delete(id)
-        return "The item with the given ID was successfully deleted";  
+        return {message:"The item with the given ID was successfully deleted"}
     }
 
     async withdrawItem(payload)

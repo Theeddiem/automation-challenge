@@ -8,12 +8,16 @@ module.exports = class InventoryDAO {
     {
            this.inventory = new Map(); 
            const firstItem = new Item("Guitar","music instrument")
-           this.set(firstItem)
+           firstItem.id = "1";
+          // this.set(firstItem)
+           this.inventory.set("1",firstItem)  
            const secondItem = new Item("Milk", "a Dairy product")
-           this.set(secondItem)
+           secondItem.id = "2";
+           this.inventory.set("2",secondItem)        
+           //this.set(secondItem)
            const thirdItem = new Item("Bottle", "plastice bottle",2000)
-           thirdItem.id = "1";
-           this.inventory.set("1",thirdItem)        
+           thirdItem.id = "3";
+           this.inventory.set("3",thirdItem)        
    }
 
     set(item)
