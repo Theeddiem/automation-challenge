@@ -10,9 +10,9 @@
     </div>
     <div class="update-group" *ngIf=showUpdate   >
       <div class="input-group">
-        <input type="text" placeholder="Enter New Product Name" class="form-control"  [(ngModel)]="updatedItem.name">
-        <input type="text" placeholder="Enter New Product Description" class="form-control"  [(ngModel)]="updatedItem.description">
-        <input type="number" placeholder="Enter New Amount" class="form-control"  [(ngModel)]="updatedItem.count">
+        <input type="text" placeholder="Enter New Product Name" class="form-control"  [(ngModel)]="updatedItem.name" name="new-product">
+        <input type="text" placeholder="Enter New Product Description" class="form-control"  [(ngModel)]="updatedItem.description" name="new-description">
+        <input type="number" placeholder="Enter New Amount" class="form-control"  [(ngModel)]="updatedItem.count" name="new-amount">
       </div>
     </div>
   <div  class="alert alert-danger" *ngIf="errorMessage">
