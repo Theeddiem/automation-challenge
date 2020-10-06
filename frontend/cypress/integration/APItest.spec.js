@@ -8,7 +8,7 @@ describe("ApiTest", () => {
   let count = chance.integer({ min: 10, max: 800 });
 
   beforeEach(() => {
-    cy.visit("http://localhost:4200");
+    cy.visit("http://localhost:3000"); // list needs to be empty before starting test
   });
 
   it("contains Elements", () => {
